@@ -33,13 +33,27 @@ let package = Package(
         .library(
             name: "SWXMLHash",
             targets: ["SWXMLHash"]
-        )
+        ),
+        .executable(name: "SWXMLHashFuzzer", targets: ["SWXMLHashFuzzer"])
     ],
     targets: [
         .target(
             name: "SWXMLHash",
             path: "Source",
             exclude: ["Info.plist"]
+        ),
+        .target(
+            name: "SWXMLHashFuzzer",
+            dependencies: ["SWXMLHash"],
+            path: "mayhem",
+            sources: ["main.swift", "FuzzedDataProvider.swift"],
+            swiftSettings: [
+                .unsafeFlags(["-sanitize=fuzzer,address"]),
+                .unsafeFlags(["-parse-as-library"])
+            ],
+            linkerSettings: [
+                .unsafeFlags(["-sanitize=fuzzer,address"])
+            ]
         ),
         .testTarget(
             name: "SWXMLHashTests",

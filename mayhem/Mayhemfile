@@ -1,0 +1,7 @@
+project: SWXMLHash
+target: fuzz-SWXMLHash
+testsuite:
+    - file://mayhem/testsuite
+cmds:
+  - cmd: /release/SWXMLHashFuzzer
+    libfuzzer: true

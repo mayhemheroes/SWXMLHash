@@ -1,0 +1,20 @@
+<root>
+    <books>
+    <book>
+        <title>Book A</title>
+        <price>12.5</price>
+        <year>2015</year>
+    </book>
+    <book>
+        <title>Book B</title>
+        <price>10</price>
+        <year>1988</year>
+    </book>
+    <book>
+        <title>Book C</title>
+        <price>8.33</price>
+        <year>1990</year>
+        <amount>10</amount>
+    </book>
+    </books>
+</root>
